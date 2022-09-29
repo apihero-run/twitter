@@ -1,5 +1,5 @@
 {
-  "name": "@apihero/integration-template",
+  "name": "@apihero/twitter",
   "version": "1.0.0-beta.0",
   "exports": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -18,18 +18,19 @@
     "api",
     "apihero",
     "client",
-    "http"
+    "http",
+    "twitter"
   ],
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/apihero-run/integration-template"
+    "url": "https://github.com/apihero-run/twitter"
   },
   "homepage": "https://docs.apihero.run/integrations",
   "bugs": {
-    "url": "https://github.com/apihero-run/integration-template"
+    "url": "https://github.com/apihero-run/twitter"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.3.0",
