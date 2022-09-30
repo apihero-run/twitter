@@ -1,7 +1,6 @@
 import {
   BlockUserMutationResponse,
   BlockUserRequest,
-  Error,
   Get2ListsIdFollowersResponse,
   Get2ListsIdMembersResponse,
   Get2TweetsIdLikingUsersResponse,
@@ -81,7 +80,7 @@ export const listGetFollowers: ApiHeroEndpoint<
     paginationToken?: string;
     expansions?: Array<"pinned_tweet_id">;
   },
-  Get2ListsIdFollowersResponse | Error
+  Get2ListsIdFollowersResponse
 > = {
   id: "listGetFollowers",
   clientId: "twitter",
@@ -144,7 +143,7 @@ export const listGetMembers: ApiHeroEndpoint<
     expansions?: Array<"pinned_tweet_id">;
     maxResults?: number;
   },
-  Get2ListsIdMembersResponse | Error
+  Get2ListsIdMembersResponse
 > = {
   id: "listGetMembers",
   clientId: "twitter",
@@ -207,7 +206,7 @@ export const tweetsIdLikingUsers: ApiHeroEndpoint<
     expansions?: Array<"pinned_tweet_id">;
     maxResults?: number;
   },
-  Get2TweetsIdLikingUsersResponse | Error
+  Get2TweetsIdLikingUsersResponse
 > = {
   id: "tweetsIdLikingUsers",
   clientId: "twitter",
@@ -270,7 +269,7 @@ export const tweetsIdRetweetingUsers: ApiHeroEndpoint<
     paginationToken?: string;
     maxResults?: number;
   },
-  Get2TweetsIdRetweetedByResponse | Error
+  Get2TweetsIdRetweetedByResponse
 > = {
   id: "tweetsIdRetweetingUsers",
   clientId: "twitter",
@@ -329,7 +328,7 @@ export const findUsersById: ApiHeroEndpoint<
     >;
     expansions?: Array<"pinned_tweet_id">;
   },
-  Get2UsersResponse | Error
+  Get2UsersResponse
 > = {
   id: "findUsersById",
   clientId: "twitter",
@@ -388,7 +387,7 @@ export const findUsersByUsername: ApiHeroEndpoint<
     >;
     expansions?: Array<"pinned_tweet_id">;
   },
-  Get2UsersByResponse | Error
+  Get2UsersByResponse
 > = {
   id: "findUsersByUsername",
   clientId: "twitter",
@@ -447,7 +446,7 @@ export const findUserByUsername: ApiHeroEndpoint<
     >;
     expansions?: Array<"pinned_tweet_id">;
   },
-  Get2UsersByUsernameUsernameResponse | Error
+  Get2UsersByUsernameUsernameResponse
 > = {
   id: "findUserByUsername",
   clientId: "twitter",
@@ -504,7 +503,7 @@ export const findMyUser: ApiHeroEndpoint<
     >;
     expansions?: Array<"pinned_tweet_id">;
   },
-  Get2UsersMeResponse | Error
+  Get2UsersMeResponse
 > = {
   id: "findMyUser",
   clientId: "twitter",
@@ -563,7 +562,7 @@ export const findUserById: ApiHeroEndpoint<
     >;
     expansions?: Array<"pinned_tweet_id">;
   },
-  Get2UsersIdResponse | Error
+  Get2UsersIdResponse
 > = {
   id: "findUserById",
   clientId: "twitter",
@@ -626,7 +625,7 @@ export const usersIdBlocking: ApiHeroEndpoint<
     maxResults?: number;
     paginationToken?: string;
   },
-  Get2UsersIdBlockingResponse | Error
+  Get2UsersIdBlockingResponse
 > = {
   id: "usersIdBlocking",
   clientId: "twitter",
@@ -641,7 +640,7 @@ export const usersIdBlocking: ApiHeroEndpoint<
 */
 export const usersIdBlock: ApiHeroEndpoint<
   { id: string; blocking: BlockUserRequest },
-  BlockUserMutationResponse | Error
+  BlockUserMutationResponse
 > = {
   id: "usersIdBlock",
   clientId: "twitter",
@@ -704,7 +703,7 @@ export const usersIdFollowers: ApiHeroEndpoint<
     expansions?: Array<"pinned_tweet_id">;
     maxResults?: number;
   },
-  Get2UsersIdFollowersResponse | Error
+  Get2UsersIdFollowersResponse
 > = {
   id: "usersIdFollowers",
   clientId: "twitter",
@@ -767,7 +766,7 @@ export const usersIdFollowing: ApiHeroEndpoint<
     expansions?: Array<"pinned_tweet_id">;
     paginationToken?: string;
   },
-  Get2UsersIdFollowingResponse | Error
+  Get2UsersIdFollowingResponse
 > = {
   id: "usersIdFollowing",
   clientId: "twitter",
@@ -782,7 +781,7 @@ export const usersIdFollowing: ApiHeroEndpoint<
 */
 export const usersIdFollow: ApiHeroEndpoint<
   { id: string; following?: UsersFollowingCreateRequest },
-  UsersFollowingCreateResponse | Error
+  UsersFollowingCreateResponse
 > = {
   id: "usersIdFollow",
   clientId: "twitter",
@@ -845,7 +844,7 @@ export const usersIdMuting: ApiHeroEndpoint<
     expansions?: Array<"pinned_tweet_id">;
     maxResults?: number;
   },
-  Get2UsersIdMutingResponse | Error
+  Get2UsersIdMutingResponse
 > = {
   id: "usersIdMuting",
   clientId: "twitter",
@@ -860,7 +859,7 @@ export const usersIdMuting: ApiHeroEndpoint<
 */
 export const usersIdMute: ApiHeroEndpoint<
   { id: string; muting?: MuteUserRequest },
-  MuteUserMutationResponse | Error
+  MuteUserMutationResponse
 > = {
   id: "usersIdMute",
   clientId: "twitter",
@@ -876,7 +875,7 @@ export const usersIdMute: ApiHeroEndpoint<
 */
 export const usersIdUnblock: ApiHeroEndpoint<
   { sourceUserId: string; targetUserId: string },
-  BlockUserMutationResponse | Error
+  BlockUserMutationResponse
 > = {
   id: "usersIdUnblock",
   clientId: "twitter",
@@ -892,7 +891,7 @@ export const usersIdUnblock: ApiHeroEndpoint<
 */
 export const usersIdUnfollow: ApiHeroEndpoint<
   { sourceUserId: string; targetUserId: string },
-  UsersFollowingDeleteResponse | Error
+  UsersFollowingDeleteResponse
 > = {
   id: "usersIdUnfollow",
   clientId: "twitter",
@@ -908,7 +907,7 @@ export const usersIdUnfollow: ApiHeroEndpoint<
 */
 export const usersIdUnmute: ApiHeroEndpoint<
   { sourceUserId: string; targetUserId: string },
-  MuteUserMutationResponse | Error
+  MuteUserMutationResponse
 > = {
   id: "usersIdUnmute",
   clientId: "twitter",

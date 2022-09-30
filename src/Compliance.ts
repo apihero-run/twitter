@@ -1,7 +1,6 @@
 import {
   CreateComplianceJobRequest,
   CreateComplianceJobResponse,
-  Error,
   Get2ComplianceJobsIdResponse,
   Get2ComplianceJobsResponse,
   TweetComplianceStreamResponse,
@@ -35,7 +34,7 @@ export const listBatchComplianceJobs: ApiHeroEndpoint<
       | "upload_url"
     >;
   },
-  Get2ComplianceJobsResponse | Error
+  Get2ComplianceJobsResponse
 > = {
   id: "listBatchComplianceJobs",
   clientId: "twitter",
@@ -49,7 +48,7 @@ export const listBatchComplianceJobs: ApiHeroEndpoint<
 */
 export const createBatchComplianceJob: ApiHeroEndpoint<
   { job: CreateComplianceJobRequest },
-  CreateComplianceJobResponse | Error
+  CreateComplianceJobResponse
 > = {
   id: "createBatchComplianceJob",
   clientId: "twitter",
@@ -79,7 +78,7 @@ export const getBatchComplianceJob: ApiHeroEndpoint<
       | "upload_url"
     >;
   },
-  Get2ComplianceJobsIdResponse | Error
+  Get2ComplianceJobsIdResponse
 > = {
   id: "getBatchComplianceJob",
   clientId: "twitter",
@@ -97,7 +96,7 @@ export const getBatchComplianceJob: ApiHeroEndpoint<
 */
 export const getTweetsComplianceStream: ApiHeroEndpoint<
   { partition: number; backfillMinutes?: number; startTime?: string; endTime?: string },
-  TweetComplianceStreamResponse | Error
+  TweetComplianceStreamResponse
 > = {
   id: "getTweetsComplianceStream",
   clientId: "twitter",
@@ -115,7 +114,7 @@ export const getTweetsComplianceStream: ApiHeroEndpoint<
 */
 export const getUsersComplianceStream: ApiHeroEndpoint<
   { partition: number; startTime?: string; endTime?: string; backfillMinutes?: number },
-  UserComplianceStreamResponse | Error
+  UserComplianceStreamResponse
 > = {
   id: "getUsersComplianceStream",
   clientId: "twitter",

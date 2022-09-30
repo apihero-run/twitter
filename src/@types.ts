@@ -6,7 +6,7 @@ export type { ApiHeroEndpoint } from "@apihero/core";
 export type End = string;
 
 export type Geo = {
-  bbox: Array<number>;
+  bbox: [number, number, number, number];
   type: "Feature";
   geometry?: Point;
   properties: {};
@@ -673,7 +673,7 @@ export type OldestId = string;
 /**
  * A [GeoJson Position](https://tools.ietf.org/html/rfc7946#section-3.1.1) in the format `[longitude,latitude]`.
  */
-export type Position = Array<number>;
+export type Position = [number, number];
 
 export type Problems = Array<Problem>;
 

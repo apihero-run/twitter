@@ -1,7 +1,6 @@
 import {
   BookmarkAddRequest,
   BookmarkMutationResponse,
-  Error,
   Get2UsersIdBookmarksResponse,
   ApiHeroEndpoint,
 } from "./@types";
@@ -101,7 +100,7 @@ export const getUsersIdBookmarks: ApiHeroEndpoint<
     >;
     maxResults?: number;
   },
-  Get2UsersIdBookmarksResponse | Error
+  Get2UsersIdBookmarksResponse
 > = {
   id: "getUsersIdBookmarks",
   clientId: "twitter",
@@ -116,7 +115,7 @@ export const getUsersIdBookmarks: ApiHeroEndpoint<
 */
 export const postUsersIdBookmarks: ApiHeroEndpoint<
   { id: string; bookmark: BookmarkAddRequest },
-  BookmarkMutationResponse | Error
+  BookmarkMutationResponse
 > = {
   id: "postUsersIdBookmarks",
   clientId: "twitter",
@@ -132,7 +131,7 @@ export const postUsersIdBookmarks: ApiHeroEndpoint<
 */
 export const usersIdBookmarksDelete: ApiHeroEndpoint<
   { id: string; tweetId: string },
-  BookmarkMutationResponse | Error
+  BookmarkMutationResponse
 > = {
   id: "usersIdBookmarksDelete",
   clientId: "twitter",

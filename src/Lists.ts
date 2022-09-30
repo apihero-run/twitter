@@ -1,5 +1,4 @@
 import {
-  Error,
   Get2ListsIdResponse,
   Get2UsersIdFollowedListsResponse,
   Get2UsersIdListMembershipsResponse,
@@ -26,10 +25,7 @@ import {
 * Create List
 * Creates a new List. 
 */
-export const listIdCreate: ApiHeroEndpoint<
-  { list?: ListCreateRequest },
-  ListCreateResponse | Error
-> = {
+export const listIdCreate: ApiHeroEndpoint<{ list?: ListCreateRequest }, ListCreateResponse> = {
   id: "listIdCreate",
   clientId: "twitter",
 };
@@ -75,7 +71,7 @@ export const listIdGet: ApiHeroEndpoint<
     >;
     expansions?: Array<"owner_id">;
   },
-  Get2ListsIdResponse | Error
+  Get2ListsIdResponse
 > = {
   id: "listIdGet",
   clientId: "twitter",
@@ -90,7 +86,7 @@ export const listIdGet: ApiHeroEndpoint<
 */
 export const listIdUpdate: ApiHeroEndpoint<
   { id: string; list?: ListUpdateRequest },
-  ListUpdateResponse | Error
+  ListUpdateResponse
 > = {
   id: "listIdUpdate",
   clientId: "twitter",
@@ -103,7 +99,7 @@ export const listIdUpdate: ApiHeroEndpoint<
 * Delete a List that you own.
 * @param id - The ID of the List to delete. 
 */
-export const listIdDelete: ApiHeroEndpoint<{ id: string }, ListDeleteResponse | Error> = {
+export const listIdDelete: ApiHeroEndpoint<{ id: string }, ListDeleteResponse> = {
   id: "listIdDelete",
   clientId: "twitter",
 };
@@ -117,7 +113,7 @@ export const listIdDelete: ApiHeroEndpoint<{ id: string }, ListDeleteResponse | 
 */
 export const listAddMember: ApiHeroEndpoint<
   { id: string; member?: ListAddUserRequest },
-  ListMutateResponse | Error
+  ListMutateResponse
 > = {
   id: "listAddMember",
   clientId: "twitter",
@@ -131,13 +127,11 @@ export const listAddMember: ApiHeroEndpoint<
 * @param id - The ID of the List to remove a member.
 * @param userId - The ID of User that will be removed from the List. 
 */
-export const listRemoveMember: ApiHeroEndpoint<
-  { id: string; userId: string },
-  ListMutateResponse | Error
-> = {
-  id: "listRemoveMember",
-  clientId: "twitter",
-};
+export const listRemoveMember: ApiHeroEndpoint<{ id: string; userId: string }, ListMutateResponse> =
+  {
+    id: "listRemoveMember",
+    clientId: "twitter",
+  };
 
 /** 
 
@@ -184,7 +178,7 @@ export const userFollowedLists: ApiHeroEndpoint<
     expansions?: Array<"owner_id">;
     paginationToken?: string;
   },
-  Get2UsersIdFollowedListsResponse | Error
+  Get2UsersIdFollowedListsResponse
 > = {
   id: "userFollowedLists",
   clientId: "twitter",
@@ -199,7 +193,7 @@ export const userFollowedLists: ApiHeroEndpoint<
 */
 export const listUserFollow: ApiHeroEndpoint<
   { id: string; followedList?: ListFollowedRequest },
-  ListFollowedResponse | Error
+  ListFollowedResponse
 > = {
   id: "listUserFollow",
   clientId: "twitter",
@@ -215,7 +209,7 @@ export const listUserFollow: ApiHeroEndpoint<
 */
 export const listUserUnfollow: ApiHeroEndpoint<
   { id: string; listId: string },
-  ListFollowedResponse | Error
+  ListFollowedResponse
 > = {
   id: "listUserUnfollow",
   clientId: "twitter",
@@ -266,7 +260,7 @@ export const getUserListMemberships: ApiHeroEndpoint<
     expansions?: Array<"owner_id">;
     paginationToken?: string;
   },
-  Get2UsersIdListMembershipsResponse | Error
+  Get2UsersIdListMembershipsResponse
 > = {
   id: "getUserListMemberships",
   clientId: "twitter",
@@ -316,7 +310,7 @@ export const listUserOwnedLists: ApiHeroEndpoint<
     maxResults?: number;
     expansions?: Array<"owner_id">;
   },
-  Get2UsersIdOwnedListsResponse | Error
+  Get2UsersIdOwnedListsResponse
 > = {
   id: "listUserOwnedLists",
   clientId: "twitter",
@@ -363,7 +357,7 @@ export const listUserPinnedLists: ApiHeroEndpoint<
     >;
     expansions?: Array<"owner_id">;
   },
-  Get2UsersIdPinnedListsResponse | Error
+  Get2UsersIdPinnedListsResponse
 > = {
   id: "listUserPinnedLists",
   clientId: "twitter",
@@ -378,7 +372,7 @@ export const listUserPinnedLists: ApiHeroEndpoint<
 */
 export const listUserPin: ApiHeroEndpoint<
   { id: string; pinnedList: ListPinnedRequest },
-  ListPinnedResponse | Error
+  ListPinnedResponse
 > = {
   id: "listUserPin",
   clientId: "twitter",
@@ -392,10 +386,7 @@ export const listUserPin: ApiHeroEndpoint<
 * @param listId - The ID of the List to unpin.
 * @param id - The ID of the authenticated source User for whom to return results. 
 */
-export const listUserUnpin: ApiHeroEndpoint<
-  { listId: string; id: string },
-  ListUnpinResponse | Error
-> = {
+export const listUserUnpin: ApiHeroEndpoint<{ listId: string; id: string }, ListUnpinResponse> = {
   id: "listUserUnpin",
   clientId: "twitter",
 };

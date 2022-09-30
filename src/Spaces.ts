@@ -1,5 +1,4 @@
 import {
-  Error,
   Get2SpacesByCreatorIdsResponse,
   Get2SpacesIdBuyersResponse,
   Get2SpacesIdResponse,
@@ -64,7 +63,7 @@ export const findSpacesByIds: ApiHeroEndpoint<
       "creator_id" | "host_ids" | "invited_user_ids" | "speaker_ids" | "topic_ids"
     >;
   },
-  Get2SpacesResponse | Error
+  Get2SpacesResponse
 > = {
   id: "findSpacesByIds",
   clientId: "twitter",
@@ -124,7 +123,7 @@ export const findSpacesByCreatorIds: ApiHeroEndpoint<
       "creator_id" | "host_ids" | "invited_user_ids" | "speaker_ids" | "topic_ids"
     >;
   },
-  Get2SpacesByCreatorIdsResponse | Error
+  Get2SpacesByCreatorIdsResponse
 > = {
   id: "findSpacesByCreatorIds",
   clientId: "twitter",
@@ -188,7 +187,7 @@ export const searchSpaces: ApiHeroEndpoint<
       "creator_id" | "host_ids" | "invited_user_ids" | "speaker_ids" | "topic_ids"
     >;
   },
-  Get2SpacesSearchResponse | Error
+  Get2SpacesSearchResponse
 > = {
   id: "searchSpaces",
   clientId: "twitter",
@@ -248,7 +247,7 @@ export const findSpaceById: ApiHeroEndpoint<
       "creator_id" | "host_ids" | "invited_user_ids" | "speaker_ids" | "topic_ids"
     >;
   },
-  Get2SpacesIdResponse | Error
+  Get2SpacesIdResponse
 > = {
   id: "findSpaceById",
   clientId: "twitter",
@@ -311,7 +310,7 @@ export const spaceBuyers: ApiHeroEndpoint<
     expansions?: Array<"pinned_tweet_id">;
     paginationToken?: string;
   },
-  Get2SpacesIdBuyersResponse | Error
+  Get2SpacesIdBuyersResponse
 > = {
   id: "spaceBuyers",
   clientId: "twitter",
@@ -410,7 +409,7 @@ export const spaceTweets: ApiHeroEndpoint<
     >;
     maxResults?: number;
   },
-  Get2SpacesIdTweetsResponse | Error
+  Get2SpacesIdTweetsResponse
 > = {
   id: "spaceTweets",
   clientId: "twitter",

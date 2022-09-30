@@ -1,7 +1,6 @@
 import {
   AddOrDeleteRulesRequest,
   AddOrDeleteRulesResponse,
-  Error,
   FilteredStreamingTweetResponse,
   Get2ListsIdTweetsResponse,
   Get2SpacesIdBuyersResponse,
@@ -131,7 +130,7 @@ export const listsIdTweets: ApiHeroEndpoint<
       | "referenced_tweets.id.author_id"
     >;
   },
-  Get2ListsIdTweetsResponse | Error
+  Get2ListsIdTweetsResponse
 > = {
   id: "listsIdTweets",
   clientId: "twitter",
@@ -194,7 +193,7 @@ export const spaceBuyers: ApiHeroEndpoint<
     expansions?: Array<"pinned_tweet_id">;
     paginationToken?: string;
   },
-  Get2SpacesIdBuyersResponse | Error
+  Get2SpacesIdBuyersResponse
 > = {
   id: "spaceBuyers",
   clientId: "twitter",
@@ -293,7 +292,7 @@ export const spaceTweets: ApiHeroEndpoint<
     >;
     maxResults?: number;
   },
-  Get2SpacesIdTweetsResponse | Error
+  Get2SpacesIdTweetsResponse
 > = {
   id: "spaceTweets",
   clientId: "twitter",
@@ -390,7 +389,7 @@ export const findTweetsById: ApiHeroEndpoint<
       | "referenced_tweets.id.author_id"
     >;
   },
-  Get2TweetsResponse | Error
+  Get2TweetsResponse
 > = {
   id: "findTweetsById",
   clientId: "twitter",
@@ -402,10 +401,7 @@ export const findTweetsById: ApiHeroEndpoint<
 * Creation of a Tweet
 * Causes the User to create a Tweet under the authorized account. 
 */
-export const createTweet: ApiHeroEndpoint<
-  { tweet: TweetCreateRequest },
-  Error | TweetCreateResponse
-> = {
+export const createTweet: ApiHeroEndpoint<{ tweet: TweetCreateRequest }, TweetCreateResponse> = {
   id: "createTweet",
   clientId: "twitter",
 };
@@ -437,7 +433,7 @@ export const tweetCountsFullArchiveSearch: ApiHeroEndpoint<
     startTime?: string;
     nextToken?: string;
   },
-  Get2TweetsCountsAllResponse | Error
+  Get2TweetsCountsAllResponse
 > = {
   id: "tweetCountsFullArchiveSearch",
   clientId: "twitter",
@@ -470,7 +466,7 @@ export const tweetCountsRecentSearch: ApiHeroEndpoint<
     paginationToken?: string;
     endTime?: string;
   },
-  Get2TweetsCountsRecentResponse | Error
+  Get2TweetsCountsRecentResponse
 > = {
   id: "tweetCountsRecentSearch",
   clientId: "twitter",
@@ -573,7 +569,7 @@ export const getTweetsFirehoseStream: ApiHeroEndpoint<
     >;
     endTime?: string;
   },
-  StreamingTweetResponse | Error
+  StreamingTweetResponse
 > = {
   id: "getTweetsFirehoseStream",
   clientId: "twitter",
@@ -670,7 +666,7 @@ export const sampleStream: ApiHeroEndpoint<
     >;
     backfillMinutes?: number;
   },
-  StreamingTweetResponse | Error
+  StreamingTweetResponse
 > = {
   id: "sampleStream",
   clientId: "twitter",
@@ -773,7 +769,7 @@ export const getTweetsSample10Stream: ApiHeroEndpoint<
     startTime?: string;
     backfillMinutes?: number;
   },
-  Get2TweetsSample10StreamResponse | Error
+  Get2TweetsSample10StreamResponse
 > = {
   id: "getTweetsSample10Stream",
   clientId: "twitter",
@@ -886,7 +882,7 @@ export const tweetsFullarchiveSearch: ApiHeroEndpoint<
     untilId?: string;
     nextToken?: string;
   },
-  Get2TweetsSearchAllResponse | Error
+  Get2TweetsSearchAllResponse
 > = {
   id: "tweetsFullarchiveSearch",
   clientId: "twitter",
@@ -999,7 +995,7 @@ export const tweetsRecentSearch: ApiHeroEndpoint<
     endTime?: string;
     untilId?: string;
   },
-  Get2TweetsSearchRecentResponse | Error
+  Get2TweetsSearchRecentResponse
 > = {
   id: "tweetsRecentSearch",
   clientId: "twitter",
@@ -1100,7 +1096,7 @@ export const searchStream: ApiHeroEndpoint<
     endTime?: string;
     backfillMinutes?: number;
   },
-  FilteredStreamingTweetResponse | Error
+  FilteredStreamingTweetResponse
 > = {
   id: "searchStream",
   clientId: "twitter",
@@ -1117,7 +1113,7 @@ export const searchStream: ApiHeroEndpoint<
 */
 export const getRules: ApiHeroEndpoint<
   { ids?: Array<RuleId>; maxResults?: number; paginationToken?: string },
-  RulesLookupResponse | Error
+  RulesLookupResponse
 > = {
   id: "getRules",
   clientId: "twitter",
@@ -1132,7 +1128,7 @@ export const getRules: ApiHeroEndpoint<
 */
 export const addOrDeleteRules: ApiHeroEndpoint<
   { rule: AddOrDeleteRulesRequest; dryRun?: boolean },
-  AddOrDeleteRulesResponse | Error
+  AddOrDeleteRulesResponse
 > = {
   id: "addOrDeleteRules",
   clientId: "twitter",
@@ -1229,7 +1225,7 @@ export const findTweetById: ApiHeroEndpoint<
       | "referenced_tweets.id.author_id"
     >;
   },
-  Get2TweetsIdResponse | Error
+  Get2TweetsIdResponse
 > = {
   id: "findTweetById",
   clientId: "twitter",
@@ -1242,7 +1238,7 @@ export const findTweetById: ApiHeroEndpoint<
 * Delete specified Tweet (in the path) by ID.
 * @param id - The ID of the Tweet to be deleted. 
 */
-export const deleteTweetById: ApiHeroEndpoint<{ id: string }, TweetDeleteResponse | Error> = {
+export const deleteTweetById: ApiHeroEndpoint<{ id: string }, TweetDeleteResponse> = {
   id: "deleteTweetById",
   clientId: "twitter",
 };
@@ -1344,7 +1340,7 @@ export const findTweetsThatQuoteATweet: ApiHeroEndpoint<
     maxResults?: number;
     paginationToken?: string;
   },
-  Get2TweetsIdQuoteTweetsResponse | Error
+  Get2TweetsIdQuoteTweetsResponse
 > = {
   id: "findTweetsThatQuoteATweet",
   clientId: "twitter",
@@ -1359,7 +1355,7 @@ export const findTweetsThatQuoteATweet: ApiHeroEndpoint<
 */
 export const hideReplyById: ApiHeroEndpoint<
   { tweetId: string; payload?: TweetHideRequest },
-  TweetHideResponse | Error
+  TweetHideResponse
 > = {
   id: "hideReplyById",
   clientId: "twitter",
@@ -1460,7 +1456,7 @@ export const usersIdLikedTweets: ApiHeroEndpoint<
     >;
     paginationToken?: string;
   },
-  Get2UsersIdLikedTweetsResponse | Error
+  Get2UsersIdLikedTweetsResponse
 > = {
   id: "usersIdLikedTweets",
   clientId: "twitter",
@@ -1475,7 +1471,7 @@ export const usersIdLikedTweets: ApiHeroEndpoint<
 */
 export const usersIdLike: ApiHeroEndpoint<
   { id: string; like?: UsersLikesCreateRequest },
-  UsersLikesCreateResponse | Error
+  UsersLikesCreateResponse
 > = {
   id: "usersIdLike",
   clientId: "twitter",
@@ -1491,7 +1487,7 @@ export const usersIdLike: ApiHeroEndpoint<
 */
 export const usersIdUnlike: ApiHeroEndpoint<
   { tweetId: string; id: string },
-  UsersLikesDeleteResponse | Error
+  UsersLikesDeleteResponse
 > = {
   id: "usersIdUnlike",
   clientId: "twitter",
@@ -1600,7 +1596,7 @@ export const usersIdMentions: ApiHeroEndpoint<
       | "referenced_tweets.id.author_id"
     >;
   },
-  Get2UsersIdMentionsResponse | Error
+  Get2UsersIdMentionsResponse
 > = {
   id: "usersIdMentions",
   clientId: "twitter",
@@ -1615,7 +1611,7 @@ export const usersIdMentions: ApiHeroEndpoint<
 */
 export const usersIdRetweets: ApiHeroEndpoint<
   { id: string; retweet?: UsersRetweetsCreateRequest },
-  UsersRetweetsCreateResponse | Error
+  UsersRetweetsCreateResponse
 > = {
   id: "usersIdRetweets",
   clientId: "twitter",
@@ -1631,7 +1627,7 @@ export const usersIdRetweets: ApiHeroEndpoint<
 */
 export const usersIdUnretweets: ApiHeroEndpoint<
   { sourceTweetId: string; id: string },
-  UsersRetweetsDeleteResponse | Error
+  UsersRetweetsDeleteResponse
 > = {
   id: "usersIdUnretweets",
   clientId: "twitter",
@@ -1742,7 +1738,7 @@ export const usersIdTimeline: ApiHeroEndpoint<
     >;
     exclude?: Array<"replies" | "retweets">;
   },
-  Get2UsersIdTimelinesReverseChronologicalResponse | Error
+  Get2UsersIdTimelinesReverseChronologicalResponse
 > = {
   id: "usersIdTimeline",
   clientId: "twitter",
@@ -1853,7 +1849,7 @@ export const usersIdTweets: ApiHeroEndpoint<
     >;
     endTime?: string;
   },
-  Get2UsersIdTweetsResponse | Error
+  Get2UsersIdTweetsResponse
 > = {
   id: "usersIdTweets",
   clientId: "twitter",
