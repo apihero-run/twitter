@@ -90,12 +90,12 @@ export const getBatchComplianceJob: ApiHeroEndpoint<
 * Tweets Compliance stream
 * Streams 100% of compliance data for Tweets
 * @param partition - The partition number.
-* @param [backfillMinutes] - The number of minutes of backfill requested.
 * @param [startTime] - YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp from which the Tweet Compliance events will be provided.
+* @param [backfillMinutes] - The number of minutes of backfill requested.
 * @param [endTime] - YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Tweet Compliance events will be provided. 
 */
 export const getTweetsComplianceStream: ApiHeroEndpoint<
-  { partition: number; backfillMinutes?: number; startTime?: string; endTime?: string },
+  { partition: number; startTime?: string; backfillMinutes?: number; endTime?: string },
   TweetComplianceStreamResponse
 > = {
   id: "getTweetsComplianceStream",
@@ -108,12 +108,12 @@ export const getTweetsComplianceStream: ApiHeroEndpoint<
 * Users Compliance stream
 * Streams 100% of compliance data for Users
 * @param partition - The partition number.
-* @param [startTime] - YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp from which the User Compliance events will be provided.
+* @param [backfillMinutes] - The number of minutes of backfill requested.
 * @param [endTime] - YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp from which the User Compliance events will be provided.
-* @param [backfillMinutes] - The number of minutes of backfill requested. 
+* @param [startTime] - YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp from which the User Compliance events will be provided. 
 */
 export const getUsersComplianceStream: ApiHeroEndpoint<
-  { partition: number; startTime?: string; endTime?: string; backfillMinutes?: number },
+  { partition: number; backfillMinutes?: number; endTime?: string; startTime?: string },
   UserComplianceStreamResponse
 > = {
   id: "getUsersComplianceStream",

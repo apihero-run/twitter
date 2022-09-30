@@ -29,31 +29,15 @@ import {
 * Returns User objects that follow a List by the provided List ID
 * Returns a list of Users that follow a List by the provided List ID
 * @param id - The ID of the List.
-* @param [userFields] - A comma separated list of User fields to display.
 * @param [maxResults=100] - The maximum number of results.
 * @param [tweetFields] - A comma separated list of Tweet fields to display.
-* @param [paginationToken] - This parameter is used to get a specified 'page' of results.
-* @param [expansions] - A comma separated list of fields to expand. 
+* @param [userFields] - A comma separated list of User fields to display.
+* @param [expansions] - A comma separated list of fields to expand.
+* @param [paginationToken] - This parameter is used to get a specified 'page' of results. 
 */
 export const listGetFollowers: ApiHeroEndpoint<
   {
     id: string;
-    userFields?: Array<
-      | "created_at"
-      | "description"
-      | "entities"
-      | "id"
-      | "location"
-      | "name"
-      | "pinned_tweet_id"
-      | "profile_image_url"
-      | "protected"
-      | "public_metrics"
-      | "url"
-      | "username"
-      | "verified"
-      | "withheld"
-    >;
     maxResults?: number;
     tweetFields?: Array<
       | "attachments"
@@ -77,8 +61,24 @@ export const listGetFollowers: ApiHeroEndpoint<
       | "text"
       | "withheld"
     >;
-    paginationToken?: string;
+    userFields?: Array<
+      | "created_at"
+      | "description"
+      | "entities"
+      | "id"
+      | "location"
+      | "name"
+      | "pinned_tweet_id"
+      | "profile_image_url"
+      | "protected"
+      | "public_metrics"
+      | "url"
+      | "username"
+      | "verified"
+      | "withheld"
+    >;
     expansions?: Array<"pinned_tweet_id">;
+    paginationToken?: string;
   },
   Get2ListsIdFollowersResponse
 > = {
@@ -92,31 +92,15 @@ export const listGetFollowers: ApiHeroEndpoint<
 * Returns User objects that are members of a List by the provided List ID.
 * Returns a list of Users that are members of a List by the provided List ID.
 * @param id - The ID of the List.
-* @param [userFields] - A comma separated list of User fields to display.
 * @param [tweetFields] - A comma separated list of Tweet fields to display.
-* @param [paginationToken] - This parameter is used to get a specified 'page' of results.
+* @param [maxResults=100] - The maximum number of results.
+* @param [userFields] - A comma separated list of User fields to display.
 * @param [expansions] - A comma separated list of fields to expand.
-* @param [maxResults=100] - The maximum number of results. 
+* @param [paginationToken] - This parameter is used to get a specified 'page' of results. 
 */
 export const listGetMembers: ApiHeroEndpoint<
   {
     id: string;
-    userFields?: Array<
-      | "created_at"
-      | "description"
-      | "entities"
-      | "id"
-      | "location"
-      | "name"
-      | "pinned_tweet_id"
-      | "profile_image_url"
-      | "protected"
-      | "public_metrics"
-      | "url"
-      | "username"
-      | "verified"
-      | "withheld"
-    >;
     tweetFields?: Array<
       | "attachments"
       | "author_id"
@@ -139,9 +123,25 @@ export const listGetMembers: ApiHeroEndpoint<
       | "text"
       | "withheld"
     >;
-    paginationToken?: string;
-    expansions?: Array<"pinned_tweet_id">;
     maxResults?: number;
+    userFields?: Array<
+      | "created_at"
+      | "description"
+      | "entities"
+      | "id"
+      | "location"
+      | "name"
+      | "pinned_tweet_id"
+      | "profile_image_url"
+      | "protected"
+      | "public_metrics"
+      | "url"
+      | "username"
+      | "verified"
+      | "withheld"
+    >;
+    expansions?: Array<"pinned_tweet_id">;
+    paginationToken?: string;
   },
   Get2ListsIdMembersResponse
 > = {
@@ -155,31 +155,15 @@ export const listGetMembers: ApiHeroEndpoint<
 * Returns User objects that have liked the provided Tweet ID
 * Returns a list of Users that have liked the provided Tweet ID
 * @param id - A single Tweet ID.
-* @param [userFields] - A comma separated list of User fields to display.
 * @param [tweetFields] - A comma separated list of Tweet fields to display.
-* @param [paginationToken] - This parameter is used to get the next 'page' of results.
+* @param [userFields] - A comma separated list of User fields to display.
 * @param [expansions] - A comma separated list of fields to expand.
+* @param [paginationToken] - This parameter is used to get the next 'page' of results.
 * @param [maxResults=100] - The maximum number of results. 
 */
 export const tweetsIdLikingUsers: ApiHeroEndpoint<
   {
     id: string;
-    userFields?: Array<
-      | "created_at"
-      | "description"
-      | "entities"
-      | "id"
-      | "location"
-      | "name"
-      | "pinned_tweet_id"
-      | "profile_image_url"
-      | "protected"
-      | "public_metrics"
-      | "url"
-      | "username"
-      | "verified"
-      | "withheld"
-    >;
     tweetFields?: Array<
       | "attachments"
       | "author_id"
@@ -202,8 +186,24 @@ export const tweetsIdLikingUsers: ApiHeroEndpoint<
       | "text"
       | "withheld"
     >;
-    paginationToken?: string;
+    userFields?: Array<
+      | "created_at"
+      | "description"
+      | "entities"
+      | "id"
+      | "location"
+      | "name"
+      | "pinned_tweet_id"
+      | "profile_image_url"
+      | "protected"
+      | "public_metrics"
+      | "url"
+      | "username"
+      | "verified"
+      | "withheld"
+    >;
     expansions?: Array<"pinned_tweet_id">;
+    paginationToken?: string;
     maxResults?: number;
   },
   Get2TweetsIdLikingUsersResponse
@@ -218,31 +218,15 @@ export const tweetsIdLikingUsers: ApiHeroEndpoint<
 * Returns User objects that have retweeted the provided Tweet ID
 * Returns a list of Users that have retweeted the provided Tweet ID
 * @param id - A single Tweet ID.
-* @param [userFields] - A comma separated list of User fields to display.
 * @param [tweetFields] - A comma separated list of Tweet fields to display.
+* @param [userFields] - A comma separated list of User fields to display.
 * @param [expansions] - A comma separated list of fields to expand.
-* @param [paginationToken] - This parameter is used to get the next 'page' of results.
-* @param [maxResults=100] - The maximum number of results. 
+* @param [maxResults=100] - The maximum number of results.
+* @param [paginationToken] - This parameter is used to get the next 'page' of results. 
 */
 export const tweetsIdRetweetingUsers: ApiHeroEndpoint<
   {
     id: string;
-    userFields?: Array<
-      | "created_at"
-      | "description"
-      | "entities"
-      | "id"
-      | "location"
-      | "name"
-      | "pinned_tweet_id"
-      | "profile_image_url"
-      | "protected"
-      | "public_metrics"
-      | "url"
-      | "username"
-      | "verified"
-      | "withheld"
-    >;
     tweetFields?: Array<
       | "attachments"
       | "author_id"
@@ -265,9 +249,25 @@ export const tweetsIdRetweetingUsers: ApiHeroEndpoint<
       | "text"
       | "withheld"
     >;
+    userFields?: Array<
+      | "created_at"
+      | "description"
+      | "entities"
+      | "id"
+      | "location"
+      | "name"
+      | "pinned_tweet_id"
+      | "profile_image_url"
+      | "protected"
+      | "public_metrics"
+      | "url"
+      | "username"
+      | "verified"
+      | "withheld"
+    >;
     expansions?: Array<"pinned_tweet_id">;
-    paginationToken?: string;
     maxResults?: number;
+    paginationToken?: string;
   },
   Get2TweetsIdRetweetedByResponse
 > = {
@@ -281,29 +281,13 @@ export const tweetsIdRetweetingUsers: ApiHeroEndpoint<
 * User lookup by IDs
 * This endpoint returns information about Users. Specify Users by their ID.
 * @param ids - A list of User IDs, comma-separated. You can specify up to 100 IDs.
-* @param [userFields] - A comma separated list of User fields to display.
 * @param [tweetFields] - A comma separated list of Tweet fields to display.
+* @param [userFields] - A comma separated list of User fields to display.
 * @param [expansions] - A comma separated list of fields to expand. 
 */
 export const findUsersById: ApiHeroEndpoint<
   {
     ids: Array<UserId>;
-    userFields?: Array<
-      | "created_at"
-      | "description"
-      | "entities"
-      | "id"
-      | "location"
-      | "name"
-      | "pinned_tweet_id"
-      | "profile_image_url"
-      | "protected"
-      | "public_metrics"
-      | "url"
-      | "username"
-      | "verified"
-      | "withheld"
-    >;
     tweetFields?: Array<
       | "attachments"
       | "author_id"
@@ -324,6 +308,22 @@ export const findUsersById: ApiHeroEndpoint<
       | "reply_settings"
       | "source"
       | "text"
+      | "withheld"
+    >;
+    userFields?: Array<
+      | "created_at"
+      | "description"
+      | "entities"
+      | "id"
+      | "location"
+      | "name"
+      | "pinned_tweet_id"
+      | "profile_image_url"
+      | "protected"
+      | "public_metrics"
+      | "url"
+      | "username"
+      | "verified"
       | "withheld"
     >;
     expansions?: Array<"pinned_tweet_id">;
@@ -340,29 +340,13 @@ export const findUsersById: ApiHeroEndpoint<
 * User lookup by usernames
 * This endpoint returns information about Users. Specify Users by their username.
 * @param usernames - A list of usernames, comma-separated.
-* @param [userFields] - A comma separated list of User fields to display.
 * @param [tweetFields] - A comma separated list of Tweet fields to display.
+* @param [userFields] - A comma separated list of User fields to display.
 * @param [expansions] - A comma separated list of fields to expand. 
 */
 export const findUsersByUsername: ApiHeroEndpoint<
   {
     usernames: Array<string>;
-    userFields?: Array<
-      | "created_at"
-      | "description"
-      | "entities"
-      | "id"
-      | "location"
-      | "name"
-      | "pinned_tweet_id"
-      | "profile_image_url"
-      | "protected"
-      | "public_metrics"
-      | "url"
-      | "username"
-      | "verified"
-      | "withheld"
-    >;
     tweetFields?: Array<
       | "attachments"
       | "author_id"
@@ -383,6 +367,22 @@ export const findUsersByUsername: ApiHeroEndpoint<
       | "reply_settings"
       | "source"
       | "text"
+      | "withheld"
+    >;
+    userFields?: Array<
+      | "created_at"
+      | "description"
+      | "entities"
+      | "id"
+      | "location"
+      | "name"
+      | "pinned_tweet_id"
+      | "profile_image_url"
+      | "protected"
+      | "public_metrics"
+      | "url"
+      | "username"
+      | "verified"
       | "withheld"
     >;
     expansions?: Array<"pinned_tweet_id">;
@@ -399,29 +399,13 @@ export const findUsersByUsername: ApiHeroEndpoint<
 * User lookup by username
 * This endpoint returns information about a User. Specify User by username.
 * @param username - A username.
-* @param [userFields] - A comma separated list of User fields to display.
 * @param [tweetFields] - A comma separated list of Tweet fields to display.
+* @param [userFields] - A comma separated list of User fields to display.
 * @param [expansions] - A comma separated list of fields to expand. 
 */
 export const findUserByUsername: ApiHeroEndpoint<
   {
     username: string;
-    userFields?: Array<
-      | "created_at"
-      | "description"
-      | "entities"
-      | "id"
-      | "location"
-      | "name"
-      | "pinned_tweet_id"
-      | "profile_image_url"
-      | "protected"
-      | "public_metrics"
-      | "url"
-      | "username"
-      | "verified"
-      | "withheld"
-    >;
     tweetFields?: Array<
       | "attachments"
       | "author_id"
@@ -442,6 +426,22 @@ export const findUserByUsername: ApiHeroEndpoint<
       | "reply_settings"
       | "source"
       | "text"
+      | "withheld"
+    >;
+    userFields?: Array<
+      | "created_at"
+      | "description"
+      | "entities"
+      | "id"
+      | "location"
+      | "name"
+      | "pinned_tweet_id"
+      | "profile_image_url"
+      | "protected"
+      | "public_metrics"
+      | "url"
+      | "username"
+      | "verified"
       | "withheld"
     >;
     expansions?: Array<"pinned_tweet_id">;
@@ -457,28 +457,12 @@ export const findUserByUsername: ApiHeroEndpoint<
 
 * User lookup me
 * This endpoint returns information about the requesting User.
-* @param [userFields] - A comma separated list of User fields to display.
 * @param [tweetFields] - A comma separated list of Tweet fields to display.
+* @param [userFields] - A comma separated list of User fields to display.
 * @param [expansions] - A comma separated list of fields to expand. 
 */
 export const findMyUser: ApiHeroEndpoint<
   {
-    userFields?: Array<
-      | "created_at"
-      | "description"
-      | "entities"
-      | "id"
-      | "location"
-      | "name"
-      | "pinned_tweet_id"
-      | "profile_image_url"
-      | "protected"
-      | "public_metrics"
-      | "url"
-      | "username"
-      | "verified"
-      | "withheld"
-    >;
     tweetFields?: Array<
       | "attachments"
       | "author_id"
@@ -499,6 +483,22 @@ export const findMyUser: ApiHeroEndpoint<
       | "reply_settings"
       | "source"
       | "text"
+      | "withheld"
+    >;
+    userFields?: Array<
+      | "created_at"
+      | "description"
+      | "entities"
+      | "id"
+      | "location"
+      | "name"
+      | "pinned_tweet_id"
+      | "profile_image_url"
+      | "protected"
+      | "public_metrics"
+      | "url"
+      | "username"
+      | "verified"
       | "withheld"
     >;
     expansions?: Array<"pinned_tweet_id">;
@@ -515,29 +515,13 @@ export const findMyUser: ApiHeroEndpoint<
 * User lookup by ID
 * This endpoint returns information about a User. Specify User by ID.
 * @param id - The ID of the User to lookup.
-* @param [userFields] - A comma separated list of User fields to display.
 * @param [tweetFields] - A comma separated list of Tweet fields to display.
+* @param [userFields] - A comma separated list of User fields to display.
 * @param [expansions] - A comma separated list of fields to expand. 
 */
 export const findUserById: ApiHeroEndpoint<
   {
     id: string;
-    userFields?: Array<
-      | "created_at"
-      | "description"
-      | "entities"
-      | "id"
-      | "location"
-      | "name"
-      | "pinned_tweet_id"
-      | "profile_image_url"
-      | "protected"
-      | "public_metrics"
-      | "url"
-      | "username"
-      | "verified"
-      | "withheld"
-    >;
     tweetFields?: Array<
       | "attachments"
       | "author_id"
@@ -558,6 +542,22 @@ export const findUserById: ApiHeroEndpoint<
       | "reply_settings"
       | "source"
       | "text"
+      | "withheld"
+    >;
+    userFields?: Array<
+      | "created_at"
+      | "description"
+      | "entities"
+      | "id"
+      | "location"
+      | "name"
+      | "pinned_tweet_id"
+      | "profile_image_url"
+      | "protected"
+      | "public_metrics"
+      | "url"
+      | "username"
+      | "verified"
       | "withheld"
     >;
     expansions?: Array<"pinned_tweet_id">;
@@ -574,31 +574,15 @@ export const findUserById: ApiHeroEndpoint<
 * Returns User objects that are blocked by provided User ID
 * Returns a list of Users that are blocked by the provided User ID
 * @param id - The ID of the authenticated source User for whom to return results.
-* @param [userFields] - A comma separated list of User fields to display.
 * @param [tweetFields] - A comma separated list of Tweet fields to display.
+* @param [userFields] - A comma separated list of User fields to display.
 * @param [expansions] - A comma separated list of fields to expand.
-* @param [maxResults] - The maximum number of results.
-* @param [paginationToken] - This parameter is used to get a specified 'page' of results. 
+* @param [paginationToken] - This parameter is used to get a specified 'page' of results.
+* @param [maxResults] - The maximum number of results. 
 */
 export const usersIdBlocking: ApiHeroEndpoint<
   {
     id: string;
-    userFields?: Array<
-      | "created_at"
-      | "description"
-      | "entities"
-      | "id"
-      | "location"
-      | "name"
-      | "pinned_tweet_id"
-      | "profile_image_url"
-      | "protected"
-      | "public_metrics"
-      | "url"
-      | "username"
-      | "verified"
-      | "withheld"
-    >;
     tweetFields?: Array<
       | "attachments"
       | "author_id"
@@ -621,9 +605,25 @@ export const usersIdBlocking: ApiHeroEndpoint<
       | "text"
       | "withheld"
     >;
+    userFields?: Array<
+      | "created_at"
+      | "description"
+      | "entities"
+      | "id"
+      | "location"
+      | "name"
+      | "pinned_tweet_id"
+      | "profile_image_url"
+      | "protected"
+      | "public_metrics"
+      | "url"
+      | "username"
+      | "verified"
+      | "withheld"
+    >;
     expansions?: Array<"pinned_tweet_id">;
-    maxResults?: number;
     paginationToken?: string;
+    maxResults?: number;
   },
   Get2UsersIdBlockingResponse
 > = {
@@ -652,31 +652,15 @@ export const usersIdBlock: ApiHeroEndpoint<
 * Followers by User ID
 * Returns a list of Users who are followers of the specified User ID.
 * @param id - The ID of the User to lookup.
-* @param [userFields] - A comma separated list of User fields to display.
 * @param [tweetFields] - A comma separated list of Tweet fields to display.
-* @param [paginationToken] - This parameter is used to get a specified 'page' of results.
+* @param [userFields] - A comma separated list of User fields to display.
 * @param [expansions] - A comma separated list of fields to expand.
+* @param [paginationToken] - This parameter is used to get a specified 'page' of results.
 * @param [maxResults] - The maximum number of results. 
 */
 export const usersIdFollowers: ApiHeroEndpoint<
   {
     id: string;
-    userFields?: Array<
-      | "created_at"
-      | "description"
-      | "entities"
-      | "id"
-      | "location"
-      | "name"
-      | "pinned_tweet_id"
-      | "profile_image_url"
-      | "protected"
-      | "public_metrics"
-      | "url"
-      | "username"
-      | "verified"
-      | "withheld"
-    >;
     tweetFields?: Array<
       | "attachments"
       | "author_id"
@@ -699,8 +683,24 @@ export const usersIdFollowers: ApiHeroEndpoint<
       | "text"
       | "withheld"
     >;
-    paginationToken?: string;
+    userFields?: Array<
+      | "created_at"
+      | "description"
+      | "entities"
+      | "id"
+      | "location"
+      | "name"
+      | "pinned_tweet_id"
+      | "profile_image_url"
+      | "protected"
+      | "public_metrics"
+      | "url"
+      | "username"
+      | "verified"
+      | "withheld"
+    >;
     expansions?: Array<"pinned_tweet_id">;
+    paginationToken?: string;
     maxResults?: number;
   },
   Get2UsersIdFollowersResponse
@@ -715,32 +715,15 @@ export const usersIdFollowers: ApiHeroEndpoint<
 * Following by User ID
 * Returns a list of Users that are being followed by the provided User ID
 * @param id - The ID of the User to lookup.
-* @param [maxResults] - The maximum number of results.
-* @param [userFields] - A comma separated list of User fields to display.
 * @param [tweetFields] - A comma separated list of Tweet fields to display.
+* @param [userFields] - A comma separated list of User fields to display.
 * @param [expansions] - A comma separated list of fields to expand.
-* @param [paginationToken] - This parameter is used to get a specified 'page' of results. 
+* @param [paginationToken] - This parameter is used to get a specified 'page' of results.
+* @param [maxResults] - The maximum number of results. 
 */
 export const usersIdFollowing: ApiHeroEndpoint<
   {
     id: string;
-    maxResults?: number;
-    userFields?: Array<
-      | "created_at"
-      | "description"
-      | "entities"
-      | "id"
-      | "location"
-      | "name"
-      | "pinned_tweet_id"
-      | "profile_image_url"
-      | "protected"
-      | "public_metrics"
-      | "url"
-      | "username"
-      | "verified"
-      | "withheld"
-    >;
     tweetFields?: Array<
       | "attachments"
       | "author_id"
@@ -763,8 +746,25 @@ export const usersIdFollowing: ApiHeroEndpoint<
       | "text"
       | "withheld"
     >;
+    userFields?: Array<
+      | "created_at"
+      | "description"
+      | "entities"
+      | "id"
+      | "location"
+      | "name"
+      | "pinned_tweet_id"
+      | "profile_image_url"
+      | "protected"
+      | "public_metrics"
+      | "url"
+      | "username"
+      | "verified"
+      | "withheld"
+    >;
     expansions?: Array<"pinned_tweet_id">;
     paginationToken?: string;
+    maxResults?: number;
   },
   Get2UsersIdFollowingResponse
 > = {
@@ -793,32 +793,15 @@ export const usersIdFollow: ApiHeroEndpoint<
 * Returns User objects that are muted by the provided User ID
 * Returns a list of Users that are muted by the provided User ID
 * @param id - The ID of the authenticated source User for whom to return results.
-* @param [paginationToken] - This parameter is used to get the next 'page' of results.
-* @param [userFields] - A comma separated list of User fields to display.
 * @param [tweetFields] - A comma separated list of Tweet fields to display.
+* @param [userFields] - A comma separated list of User fields to display.
 * @param [expansions] - A comma separated list of fields to expand.
+* @param [paginationToken] - This parameter is used to get the next 'page' of results.
 * @param [maxResults=100] - The maximum number of results. 
 */
 export const usersIdMuting: ApiHeroEndpoint<
   {
     id: string;
-    paginationToken?: string;
-    userFields?: Array<
-      | "created_at"
-      | "description"
-      | "entities"
-      | "id"
-      | "location"
-      | "name"
-      | "pinned_tweet_id"
-      | "profile_image_url"
-      | "protected"
-      | "public_metrics"
-      | "url"
-      | "username"
-      | "verified"
-      | "withheld"
-    >;
     tweetFields?: Array<
       | "attachments"
       | "author_id"
@@ -841,7 +824,24 @@ export const usersIdMuting: ApiHeroEndpoint<
       | "text"
       | "withheld"
     >;
+    userFields?: Array<
+      | "created_at"
+      | "description"
+      | "entities"
+      | "id"
+      | "location"
+      | "name"
+      | "pinned_tweet_id"
+      | "profile_image_url"
+      | "protected"
+      | "public_metrics"
+      | "url"
+      | "username"
+      | "verified"
+      | "withheld"
+    >;
     expansions?: Array<"pinned_tweet_id">;
+    paginationToken?: string;
     maxResults?: number;
   },
   Get2UsersIdMutingResponse
@@ -902,11 +902,11 @@ export const usersIdUnfollow: ApiHeroEndpoint<
 
 * Unmute User by User ID
 * Causes the source User to unmute the target User. The source User must match the User context authorizing the request
-* @param sourceUserId - The ID of the authenticated source User that is requesting to unmute the target User.
-* @param targetUserId - The ID of the User that the source User is requesting to unmute. 
+* @param targetUserId - The ID of the User that the source User is requesting to unmute.
+* @param sourceUserId - The ID of the authenticated source User that is requesting to unmute the target User. 
 */
 export const usersIdUnmute: ApiHeroEndpoint<
-  { sourceUserId: string; targetUserId: string },
+  { targetUserId: string; sourceUserId: string },
   MuteUserMutationResponse
 > = {
   id: "usersIdUnmute",

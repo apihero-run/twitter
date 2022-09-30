@@ -11,34 +11,18 @@ import {
 * Bookmarks by User
 * Returns Tweet objects that have been bookmarked by the requesting User
 * @param id - The ID of the authenticated source User for whom to return results.
-* @param [userFields] - A comma separated list of User fields to display.
 * @param [tweetFields] - A comma separated list of Tweet fields to display.
 * @param [pollFields] - A comma separated list of Poll fields to display.
-* @param [placeFields] - A comma separated list of Place fields to display.
-* @param [paginationToken] - This parameter is used to get the next 'page' of results.
-* @param [mediaFields] - A comma separated list of Media fields to display.
+* @param [userFields] - A comma separated list of User fields to display.
 * @param [expansions] - A comma separated list of fields to expand.
-* @param [maxResults] - The maximum number of results. 
+* @param [mediaFields] - A comma separated list of Media fields to display.
+* @param [placeFields] - A comma separated list of Place fields to display.
+* @param [maxResults] - The maximum number of results.
+* @param [paginationToken] - This parameter is used to get the next 'page' of results. 
 */
 export const getUsersIdBookmarks: ApiHeroEndpoint<
   {
     id: string;
-    userFields?: Array<
-      | "created_at"
-      | "description"
-      | "entities"
-      | "id"
-      | "location"
-      | "name"
-      | "pinned_tweet_id"
-      | "profile_image_url"
-      | "protected"
-      | "public_metrics"
-      | "url"
-      | "username"
-      | "verified"
-      | "withheld"
-    >;
     tweetFields?: Array<
       | "attachments"
       | "author_id"
@@ -62,17 +46,32 @@ export const getUsersIdBookmarks: ApiHeroEndpoint<
       | "withheld"
     >;
     pollFields?: Array<"duration_minutes" | "end_datetime" | "id" | "options" | "voting_status">;
-    placeFields?: Array<
-      | "contained_within"
-      | "country"
-      | "country_code"
-      | "full_name"
-      | "geo"
+    userFields?: Array<
+      | "created_at"
+      | "description"
+      | "entities"
       | "id"
+      | "location"
       | "name"
-      | "place_type"
+      | "pinned_tweet_id"
+      | "profile_image_url"
+      | "protected"
+      | "public_metrics"
+      | "url"
+      | "username"
+      | "verified"
+      | "withheld"
     >;
-    paginationToken?: string;
+    expansions?: Array<
+      | "attachments.media_keys"
+      | "attachments.poll_ids"
+      | "author_id"
+      | "entities.mentions.username"
+      | "geo.place_id"
+      | "in_reply_to_user_id"
+      | "referenced_tweets.id"
+      | "referenced_tweets.id.author_id"
+    >;
     mediaFields?: Array<
       | "alt_text"
       | "duration_ms"
@@ -88,17 +87,18 @@ export const getUsersIdBookmarks: ApiHeroEndpoint<
       | "variants"
       | "width"
     >;
-    expansions?: Array<
-      | "attachments.media_keys"
-      | "attachments.poll_ids"
-      | "author_id"
-      | "entities.mentions.username"
-      | "geo.place_id"
-      | "in_reply_to_user_id"
-      | "referenced_tweets.id"
-      | "referenced_tweets.id.author_id"
+    placeFields?: Array<
+      | "contained_within"
+      | "country"
+      | "country_code"
+      | "full_name"
+      | "geo"
+      | "id"
+      | "name"
+      | "place_type"
     >;
     maxResults?: number;
+    paginationToken?: string;
   },
   Get2UsersIdBookmarksResponse
 > = {
@@ -126,11 +126,11 @@ export const postUsersIdBookmarks: ApiHeroEndpoint<
 
 * Remove a bookmarked Tweet
 * Removes a Tweet from the requesting User's bookmarked Tweets.
-* @param id - The ID of the authenticated source User whose bookmark is to be removed.
-* @param tweetId - The ID of the Tweet that the source User is removing from bookmarks. 
+* @param tweetId - The ID of the Tweet that the source User is removing from bookmarks.
+* @param id - The ID of the authenticated source User whose bookmark is to be removed. 
 */
 export const usersIdBookmarksDelete: ApiHeroEndpoint<
-  { id: string; tweetId: string },
+  { tweetId: string; id: string },
   BookmarkMutationResponse
 > = {
   id: "usersIdBookmarksDelete",

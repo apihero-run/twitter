@@ -36,13 +36,14 @@ export const listIdCreate: ApiHeroEndpoint<{ list?: ListCreateRequest }, ListCre
 * List lookup by List ID.
 * Returns a List.
 * @param id - The ID of the List.
+* @param [expansions] - A comma separated list of fields to expand.
 * @param [userFields] - A comma separated list of User fields to display.
-* @param [listFields] - A comma separated list of List fields to display.
-* @param [expansions] - A comma separated list of fields to expand. 
+* @param [listFields] - A comma separated list of List fields to display. 
 */
 export const listIdGet: ApiHeroEndpoint<
   {
     id: string;
+    expansions?: Array<"owner_id">;
     userFields?: Array<
       | "created_at"
       | "description"
@@ -69,7 +70,6 @@ export const listIdGet: ApiHeroEndpoint<
       | "owner_id"
       | "private"
     >;
-    expansions?: Array<"owner_id">;
   },
   Get2ListsIdResponse
 > = {
@@ -139,16 +139,16 @@ export const listRemoveMember: ApiHeroEndpoint<{ id: string; userId: string }, L
 * Get User's Followed Lists
 * Returns a User's followed Lists.
 * @param id - The ID of the User to lookup.
-* @param [maxResults=100] - The maximum number of results.
+* @param [expansions] - A comma separated list of fields to expand.
 * @param [userFields] - A comma separated list of User fields to display.
 * @param [listFields] - A comma separated list of List fields to display.
-* @param [expansions] - A comma separated list of fields to expand.
+* @param [maxResults=100] - The maximum number of results.
 * @param [paginationToken] - This parameter is used to get a specified 'page' of results. 
 */
 export const userFollowedLists: ApiHeroEndpoint<
   {
     id: string;
-    maxResults?: number;
+    expansions?: Array<"owner_id">;
     userFields?: Array<
       | "created_at"
       | "description"
@@ -175,7 +175,7 @@ export const userFollowedLists: ApiHeroEndpoint<
       | "owner_id"
       | "private"
     >;
-    expansions?: Array<"owner_id">;
+    maxResults?: number;
     paginationToken?: string;
   },
   Get2UsersIdFollowedListsResponse
@@ -204,11 +204,11 @@ export const listUserFollow: ApiHeroEndpoint<
 
 * Unfollow a List
 * Causes a User to unfollow a List.
-* @param id - The ID of the authenticated source User that will unfollow the List.
-* @param listId - The ID of the List to unfollow. 
+* @param listId - The ID of the List to unfollow.
+* @param id - The ID of the authenticated source User that will unfollow the List. 
 */
 export const listUserUnfollow: ApiHeroEndpoint<
-  { id: string; listId: string },
+  { listId: string; id: string },
   ListFollowedResponse
 > = {
   id: "listUserUnfollow",
@@ -221,16 +221,16 @@ export const listUserUnfollow: ApiHeroEndpoint<
 * Get a User's List Memberships
 * Get a User's List Memberships.
 * @param id - The ID of the User to lookup.
-* @param [maxResults=100] - The maximum number of results.
+* @param [expansions] - A comma separated list of fields to expand.
 * @param [userFields] - A comma separated list of User fields to display.
 * @param [listFields] - A comma separated list of List fields to display.
-* @param [expansions] - A comma separated list of fields to expand.
+* @param [maxResults=100] - The maximum number of results.
 * @param [paginationToken] - This parameter is used to get a specified 'page' of results. 
 */
 export const getUserListMemberships: ApiHeroEndpoint<
   {
     id: string;
-    maxResults?: number;
+    expansions?: Array<"owner_id">;
     userFields?: Array<
       | "created_at"
       | "description"
@@ -257,7 +257,7 @@ export const getUserListMemberships: ApiHeroEndpoint<
       | "owner_id"
       | "private"
     >;
-    expansions?: Array<"owner_id">;
+    maxResults?: number;
     paginationToken?: string;
   },
   Get2UsersIdListMembershipsResponse
@@ -271,16 +271,16 @@ export const getUserListMemberships: ApiHeroEndpoint<
 
 * Get a User's Owned Lists.
 * @param id - The ID of the User to lookup.
-* @param [paginationToken] - This parameter is used to get a specified 'page' of results.
+* @param [expansions] - A comma separated list of fields to expand.
 * @param [userFields] - A comma separated list of User fields to display.
 * @param [listFields] - A comma separated list of List fields to display.
-* @param [maxResults=100] - The maximum number of results.
-* @param [expansions] - A comma separated list of fields to expand. 
+* @param [paginationToken] - This parameter is used to get a specified 'page' of results.
+* @param [maxResults=100] - The maximum number of results. 
 */
 export const listUserOwnedLists: ApiHeroEndpoint<
   {
     id: string;
-    paginationToken?: string;
+    expansions?: Array<"owner_id">;
     userFields?: Array<
       | "created_at"
       | "description"
@@ -307,8 +307,8 @@ export const listUserOwnedLists: ApiHeroEndpoint<
       | "owner_id"
       | "private"
     >;
+    paginationToken?: string;
     maxResults?: number;
-    expansions?: Array<"owner_id">;
   },
   Get2UsersIdOwnedListsResponse
 > = {
@@ -322,13 +322,14 @@ export const listUserOwnedLists: ApiHeroEndpoint<
 * Get a User's Pinned Lists
 * Get a User's Pinned Lists.
 * @param id - The ID of the authenticated source User for whom to return results.
+* @param [expansions] - A comma separated list of fields to expand.
 * @param [userFields] - A comma separated list of User fields to display.
-* @param [listFields] - A comma separated list of List fields to display.
-* @param [expansions] - A comma separated list of fields to expand. 
+* @param [listFields] - A comma separated list of List fields to display. 
 */
 export const listUserPinnedLists: ApiHeroEndpoint<
   {
     id: string;
+    expansions?: Array<"owner_id">;
     userFields?: Array<
       | "created_at"
       | "description"
@@ -355,7 +356,6 @@ export const listUserPinnedLists: ApiHeroEndpoint<
       | "owner_id"
       | "private"
     >;
-    expansions?: Array<"owner_id">;
   },
   Get2UsersIdPinnedListsResponse
 > = {
